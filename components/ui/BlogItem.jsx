@@ -8,11 +8,20 @@ const TextBox = (props) => (
   <span>{props.children}</span>
 );
 
-const BlogItem = ({image, text}) => (
+const BlogItem = ({image, text, author, created_at, updated_at}) => (
   <div>
     <Image {...image} />
     <br/>
     <TextBox>{text}</TextBox>
+    <p>
+      <TextBox>Автор: {author}</TextBox>
+    </p>
+    <p>
+      <TextBox>Создано: {moment(created_at).format('L')}</TextBox>
+    </p>
+    <p>
+      <TextBox>Обновлено: {moment(updated_at).format('L')}</TextBox>
+    </p>
   </div>
 );
 
@@ -23,7 +32,10 @@ const item = {
     height: '50px',
     alt: 'pic'
   },
-  text: 'Sometext'
+  text: 'Sometext',
+  author: 'Это Автор',
+  created_at: '0089-01-23',
+  updated_at: '1379-03-17'
 };
 
 ReactDOM.render(
