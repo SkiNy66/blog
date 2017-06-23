@@ -25,7 +25,7 @@ const items = [
       alt: 'pic'
     },
     id: '2',
-    text: 'в патруле))',
+    text: 'в таверне))',
     author: 'Рыцарь',
     createdAt: '0089-01-23',
     updatedAt: '1379-03-17',
@@ -39,7 +39,7 @@ const items = [
       alt: 'pic'
     },
     id: '3',
-    text: 'в патруле))',
+    text: 'на курорте))',
     author: 'Рыцарь',
     createdAt: '0089-01-23',
     updatedAt: '1379-03-17',
@@ -154,7 +154,14 @@ class BlogPage extends React.Component{
   render() {
     const { items } = this.state;
 
-    return (<BlogList items={ items } like={ this.like } />)
+    return (
+      <div>
+        <BlogList items={ items } like={ this.like } />,
+        <PieChart 
+          columns = { items.map((item) => [item.text, item.count]) }
+        />,
+      </div>
+    )
   }
   
   like (item_id) {
@@ -167,6 +174,29 @@ class BlogPage extends React.Component{
     this.setState({ items: updatedItems })
   }
 };
+
+class PieChart extends React.Component {
+  componentDidMount() {
+    this.chart = c3.generate({
+      bindto: ReactDOM.findDOMNode(this.refs.chart),
+      data: { columns: this.props.columns }
+    })
+  }
+  
+  componentWillUnmount() {
+    this.chart.destroy();
+  }
+  
+  componentWillReceiveProps(newProps){
+    this.chart.load({columns: newProps.columns});
+  }
+
+  render() {
+    return (
+      <div ref='chart' />
+    );
+  }
+}
 
 ReactDOM.render(
   React.createElement(BlogPage, { items }),
