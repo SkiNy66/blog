@@ -89,14 +89,14 @@ covertTime.propTypes = {
   formattingData: React.PropTypes.string
 };
 
-const Like = ({ count, like, id }) => (
+const Like = ({ count, like }) => (
   <p>
     <TextBox>Likes: { count } </TextBox>
-    <button onClick={ (e) => like(id) }>Like</button>
+    <button onClick={ like }>Like</button>
   </p>
 );
 
-const BlogItem = ({ image, text, author, createdAt, updatedAt, count, like, id }) => (
+const BlogItem = ({ image, text, author, createdAt, updatedAt, count, like }) => (
   <div>
     <Image {...image} />
     <br/>
@@ -110,7 +110,7 @@ const BlogItem = ({ image, text, author, createdAt, updatedAt, count, like, id }
     <p>
       <TextBox>Обновлено: { covertTime(updatedAt) }</TextBox>
     </p>
-    <Like count={ count } like={ like } id={ id }/>
+    <Like count={ count } like={ like }/>
   </div>
 );
 
@@ -139,7 +139,7 @@ BlogItem.propTypes = {
 
 const BlogList = ({ items, like}) => (
   <div>
-    { items.map((element) => <BlogItem key={element.id} {...element} like={ like }/>) }
+    { items.map((element) => <BlogItem key={element.id} {...element} like={ () => like(element.id) }/>) }
   </div>
 );
 
@@ -179,7 +179,10 @@ class PieChart extends React.Component {
   componentDidMount() {
     this.chart = c3.generate({
       bindto: ReactDOM.findDOMNode(this.refs.chart),
-      data: { columns: this.props.columns }
+      data: { 
+        columns: this.props.columns,
+        type : 'pie' 
+      }
     })
   }
   
