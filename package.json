@@ -1,0 +1,50 @@
+{
+  "name": "blog",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/SkiNy66/blog.git"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/SkiNy66/blog/issues"
+  },
+  "devDependencies": {
+    "app-module-path": "^2.2.0",
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-preset-latest": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "css-loader": "^0.28.4",
+    "eslint": "^4.1.1",
+    "eslint-plugin-destructuring": "^2.1.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-react": "^7.1.0",
+    "exec-sync": "~0.1.6",
+    "file-loader": "^0.11.2",
+    "globals": "^10.0.0",
+    "react-hot-loader": "^3.0.0-beta.7",
+    "semantic-ui": "^2.2.10",
+    "style-loader": "^0.18.2",
+    "url-loader": "^0.5.9",
+    "webpack": "^3.1.0",
+    "webpack-dev-server": "^2.5.1"
+  },
+  "dependencies": {
+    "exec-sync": "~0.1.6",
+    "execSync": "~1.0.2",
+    "lodash": "^4.17.4",
+    "moment": "^2.18.1",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "semantic-ui-react": "^0.71.0"
+  }
+}
