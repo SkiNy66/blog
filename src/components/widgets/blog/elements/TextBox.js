@@ -9,7 +9,11 @@ TextBox.defaultProps = {
 };
 
 TextBox.propTypes = {
-  text: React.PropTypes.string
+  children: React.PropTypes.oneOfType(
+    [
+      React.PropTypes.string,
+      React.PropTypes.array
+    ])
 };
 
 export default TextBox;

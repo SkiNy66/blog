@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import { AppContainer } from 'react-hot-loader';
 import '../semantic/dist/semantic.min.css';
+import './styles.css';
 
 const rootEl = document.getElementById('app');
 
