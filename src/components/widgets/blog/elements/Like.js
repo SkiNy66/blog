@@ -20,4 +20,13 @@ const Like = ({ count, like }) => (
   </div>
 );
 
+Like.propTypes = {
+  count: React.PropTypes.number,
+  like: React.PropTypes.func.isRequired
+};
+
+Like.defaultProps = {
+  count: 0,
+};
+
 export default Like;
